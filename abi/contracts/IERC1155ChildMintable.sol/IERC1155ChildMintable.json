@@ -1,6 +1,0 @@
-[
-  "function deposit(address,bytes)",
-  "function supportsInterface(bytes4) view returns (bool)",
-  "function withdrawBatch(uint256[],uint256[])",
-  "function withdrawSingle(uint256,uint256)"
-]

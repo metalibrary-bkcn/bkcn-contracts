@@ -1,4 +1,0 @@
-[
-  "function mint(address,uint256,uint256,bytes)",
-  "function mintBatch(address,uint256[],uint256[],bytes)"
-]
