@@ -15,13 +15,23 @@ dotenv.config();
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
   solidity: {
-    compilers: [{ version: "0.8.4", settings: {
-      optimizer: {
-        enabled: true,
-        runs: 10000
+    compilers: [{
+      version: "0.8.4", settings: {
+        optimizer: {
+          enabled: true,
+          runs: 200
+        }
       }
-    } }],
-  }, 
+    }, {
+      version: "0.8.9", settings: {
+        optimizer: {
+          enabled: true,
+          runs: 200
+        }
+      }
+    }
+    ],
+  },
   gasReporter: {
     enabled: (process.env.REPORT_GAS === 'true') ? true : false,
     currency: 'USD',

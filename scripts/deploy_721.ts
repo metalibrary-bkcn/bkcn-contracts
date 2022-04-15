@@ -4,7 +4,6 @@ import chalk from "chalk";
 import fs from "fs";
 import { Contract, utils } from "ethers";
 import ProgressBar from "progress";
-import { parseBytes32String } from "ethers/lib/utils";
 
 interface DeploymentObject {
   name: string;
@@ -61,14 +60,16 @@ async function main() {
   }
 
   let contracts: DeploymentObject[] = [];
-  let merkleRoot = ethers.utils.arrayify('0x8d63742cb28afaf919b390053f1e7b7948f5a55062e9cce2206daa31ed1118ea');
+  let preSaleRoot = ethers.utils.arrayify('0x8d63742cb28afaf919b390053f1e7b7948f5a55062e9cce2206daa31ed1118ea');
+  let groupOneRoot = ethers.utils.arrayify('0xbf55cf28e2c2fdae29e5ead44376b8c8baec2a82be5afa797f8b704358785d4c');
+  let groupTwoRoot = ethers.utils.arrayify('0x0cb096da485eec45ac335cbbc92f2ef4237ddbd2226e1af9fd4e0b0d751c38df');
 
   const bookcoin =  await deploy("BookCoin721", [
     "BookCoin Metalibrary Cards", 
     "MLC",
-    //merkleRoot, 
-    //merkleRoot, 
-    merkleRoot
+    preSaleRoot, 
+    groupOneRoot, 
+    groupTwoRoot
   ]);
   contracts.push(bookcoin);
   console.log("Finished Deploying.");

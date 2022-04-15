@@ -1,29 +1,35 @@
 // SPDX-License-Identifier: MIT
-
 /*     
 
-
-BBBBBBBBBBBBBBBBB                                     kkkkkkkk                  CCCCCCCCCCCCC                   iiii                   
-B::::::::::::::::B                                    k::::::k               CCC::::::::::::C                  i::::i                  
-B::::::BBBBBB:::::B                                   k::::::k             CC:::::::::::::::C                   iiii                   
-BB:::::B     B:::::B                                  k::::::k            C:::::CCCCCCCC::::C                                          
-  B::::B     B:::::B   ooooooooooo      ooooooooooo    k:::::k    kkkkkkkC:::::C       CCCCCC   ooooooooooo   iiiiiiinnnn  nnnnnnnn    
-  B::::B     B:::::B oo:::::::::::oo  oo:::::::::::oo  k:::::k   k:::::kC:::::C               oo:::::::::::oo i:::::in:::nn::::::::nn  
-  B::::BBBBBB:::::B o:::::::::::::::oo:::::::::::::::o k:::::k  k:::::k C:::::C              o:::::::::::::::o i::::in::::::::::::::nn 
-  B:::::::::::::BB  o:::::ooooo:::::oo:::::ooooo:::::o k:::::k k:::::k  C:::::C              o:::::ooooo:::::o i::::inn:::::::::::::::n
-  B::::BBBBBB:::::B o::::o     o::::oo::::o     o::::o k::::::k:::::k   C:::::C              o::::o     o::::o i::::i  n:::::nnnn:::::n
-  B::::B     B:::::Bo::::o     o::::oo::::o     o::::o k:::::::::::k    C:::::C              o::::o     o::::o i::::i  n::::n    n::::n
-  B::::B     B:::::Bo::::o     o::::oo::::o     o::::o k:::::::::::k    C:::::C              o::::o     o::::o i::::i  n::::n    n::::n
-  B::::B     B:::::Bo::::o     o::::oo::::o     o::::o k::::::k:::::k    C:::::C       CCCCCCo::::o     o::::o i::::i  n::::n    n::::n
-BB:::::BBBBBB::::::Bo:::::ooooo:::::oo:::::ooooo:::::ok::::::k k:::::k    C:::::CCCCCCCC::::Co:::::ooooo:::::oi::::::i n::::n    n::::n
-B:::::::::::::::::B o:::::::::::::::oo:::::::::::::::ok::::::k  k:::::k    CC:::::::::::::::Co:::::::::::::::oi::::::i n::::n    n::::n
-B::::::::::::::::B   oo:::::::::::oo  oo:::::::::::oo k::::::k   k:::::k     CCC::::::::::::C oo:::::::::::oo i::::::i n::::n    n::::n
-BBBBBBBBBBBBBBBBB      ooooooooooo      ooooooooooo   kkkkkkkk    kkkkkkk       CCCCCCCCCCCCC   ooooooooooo   iiiiiiii nnnnnn    nnnnnn
-
-
+      ___          ___                 ___                                            ___         ___          ___                       
+     /__/\        /  /\        ___    /  /\                   ___        _____       /  /\       /  /\        /  /\        ___           
+    |  |::\      /  /:/_      /  /\  /  /::\                 /  /\      /  /::\     /  /::\     /  /::\      /  /::\      /__/|          
+    |  |:|:\    /  /:/ /\    /  /:/ /  /:/\:\  ___     ___  /  /:/     /  /:/\:\   /  /:/\:\   /  /:/\:\    /  /:/\:\    |  |:|          
+  __|__|:|\:\  /  /:/ /:/_  /  /:/ /  /:/~/::\/__/\   /  /\/__/::\    /  /:/~/::\ /  /:/~/:/  /  /:/~/::\  /  /:/~/:/    |  |:|          
+ /__/::::| \:\/__/:/ /:/ /\/  /::\/__/:/ /:/\:\  \:\ /  /:/\__\/\:\__/__/:/ /:/\:/__/:/ /:/__/__/:/ /:/\:\/__/:/ /:/_____|__|:|          
+ \  \:\~~\__\/\  \:\/:/ /:/__/:/\:\  \:\/:/__\/\  \:\  /:/    \  \:\/\  \:\/:/~/:|  \:\/:::::|  \:\/:/__\/\  \:\/:::::/__/::::\          
+  \  \:\       \  \::/ /:/\__\/  \:\  \::/      \  \:\/:/      \__\::/\  \::/ /:/ \  \::/~~~~ \  \::/      \  \::/~~~~   ~\~~\:\         
+   \  \:\       \  \:\/:/      \  \:\  \:\       \  \::/       /__/:/  \  \:\/:/   \  \:\      \  \:\       \  \:\         \  \:\        
+    \  \:\       \  \::/        \__\/\  \:\       \__\/        \__\/    \  \::/     \  \:\      \  \:\       \  \:\         \__\/        
+     \__\/        \__\/               \__\/   ___          ___          _\__\/     __\__\/      _\__\/        \__\/                      
+                                             /  /\        /  /\        /  /\      /  /::\      /  /\                                     
+                                            /  /:/       /  /::\      /  /::\    /  /:/\:\    /  /:/_                                    
+                                           /  /:/       /  /:/\:\    /  /:/\:\  /  /:/  \:\  /  /:/ /\                                   
+                                          /  /:/  ___  /  /:/~/::\  /  /:/~/:/ /__/:/ \__\:|/  /:/ /::\                                  
+                                         /__/:/  /  /\/__/:/ /:/\:\/__/:/ /:/__\  \:\ /  /:/__/:/ /:/\:\                                 
+                                         \  \:\ /  /:/\  \:\/:/__\/\  \:\/:::::/\  \:\  /:/\  \:\/:/~/:/                                 
+                                          \  \:\  /:/  \  \::/      \  \::/~~~~  \  \:\/:/  \  \::/ /:/                                  
+                                           \  \:\/:/    \  \:\       \  \:\       \  \::/    \__\/ /:/                                   
+                                            \  \::/      \  \:\       \  \:\       \__\/       /__/:/                                    
+                                             \__\/        \__\/        \__\/                   \__\/                                     
 */
 
-pragma solidity ^0.8.4;
+/// @title BookCoin's Metalibrary Card NFT Collection
+/// @author audie.eth
+/// @notice Become a Founder of the MetaLibrary — Giving You an Early Mint Pass to Future Drops, The Founder's Club, $BKCN Token*, & More.
+/// @dev Mint windows coded into contract, merkle trees are additive and don't need to repeat
+
+pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
@@ -35,36 +41,122 @@ import "@openzeppelin/contracts/token/common/ERC2981.sol";
 contract BookCoin721 is ERC2981, ERC721, Ownable {
     using Counters for Counters.Counter;
 
-    //bytes32 public immutable rootPreSale;
-    //bytes32 public immutable rootGroup1;
-    bytes32 public rootGroup2;
-    Counters.Counter private _nextTokenId;
+    // mutable properties
+    bytes32 private _rootPreSale;
+    bytes32 private _rootGroup1;
+    bytes32 private _rootGroup2;
     string private _baseTokenURI;
     string private _contractUri;
-    mapping(address => uint256) public mintNum;
-    uint256 public supply = 1111; // TODO: this needs to be 3333, with only 1111 minting at a time
-    uint256 public mintPrice = 0.1 ether;
-    address royaltyAddr = 0x51AaE7357c8baD10DB3532e9AC597efFA5C3820f;
-    uint96 royaltyPercent = 1000; //denominator is 10000, so this is 10%
+    uint256 private _preSaleStartTime = 1650315600; // Mon Apr 18 2022 21:00:00 GMT+0000
+    uint256 private _groupOneStartTime = 1650376800; // Tue Apr 19 2022 14:00:00 GMT+0000
+    uint256 private _groupTwoStartTime = 1650387600; // Tue Apr 19 2022 17:00:00 GMT+0000
+    uint256 private _publicMintStartTime = 1650355200; // Tue Apr 19 2022 08:00:00 GMT+0000
 
+    // counter for incrementing tokenID
+    Counters.Counter private _nextTokenId;
+
+    // map of addresses to count of NFTs minted
+    mapping(address => uint16) private _mintNum;
+
+    // fixed properties
+    uint256 public supplyLimit = 1111;
+    uint256 public mintPrice = 0.15 ether;
+    uint256 public mintLimitSwitchTime = _groupTwoStartTime;
+    uint16 public firstMintLimit = 1;
+    uint16 public secondMintLimit = 5;
+
+    // EIP2981 properties
+    address royaltyAddr = 0x51AaE7357c8baD10DB3532e9AC597efFA5C3820f;
+    uint96 royaltyPercent = 1000; // denominator is 10000, so this is 10%
+
+    /**
+     *  @notice Contructor for the NFT
+     *  @param name The long name of the NFT collection
+     *  @param symbol The short, all caps symbol for the collection
+     *  @param merklerootPreSale The merkle root for the presale allowed minters
+     *  @param merklerootGroup1 The merkle root for the group one allowed minters
+     *  @param merklerootGroup2 The merkle root for the group two allowed minters
+     */
     constructor(
         string memory name,
         string memory symbol,
-        //bytes32 merklerootPreSale,
-        //bytes32 merklerootGroup1,
+        bytes32 merklerootPreSale,
+        bytes32 merklerootGroup1,
         bytes32 merklerootGroup2
     ) ERC2981() ERC721(name, symbol) Ownable() {
         _setDefaultRoyalty(royaltyAddr, royaltyPercent);
-        //rootPreSale = merklerootPreSale;
-        //rootGroup1 = merklerootGroup1;
-        rootGroup2 = merklerootGroup2;
+        _rootPreSale = merklerootPreSale;
+        _rootGroup1 = merklerootGroup1;
+        _rootGroup2 = merklerootGroup2;
         _nextTokenId.increment();
     }
 
     /**
-     *   @notice overrides EIP721 and EIP2981 supportsInterface function
-     *   @param interfaceId is supplied from anyone/contract calling this function, as defined in ERC 165
-     *   @return a boolean saying if this contract supports the interface or not
+     *  @notice Sets the ERC2981 default royalty info
+     *  @param receiver The address to receive default royalty payouts
+     *  @param feeNumerator The royalty fee in basis points, set over a denominatory of 10000
+     */
+    function setDefaultRoyalty(address receiver, uint96 feeNumerator)
+        external
+        onlyOwner
+    {
+        super._setDefaultRoyalty(receiver, feeNumerator);
+    }
+
+    /**
+     *  @notice Given a caller with a matching proof, and at least mint price ETH sent, mints the next NFT
+     *  @param proof A merkle proof that confirms the sender's address is in the list of approved minters
+     */
+    function mint(bytes32[] calldata proof) external payable {
+        // only the address on the merkle tree can mint, no others - means tree can be public
+        address account = _msgSender();
+        require(
+            msg.value >= mintPrice,
+            "Ether value sent lower than mint price"
+        );
+        require(_verify(_leaf(account), proof), "Invalid merkle proof");
+        require(_withinMintLimit(account, 1), "Already Minted");
+        _mintOne(account);
+    }
+
+    function mintBatch(bytes32[] calldata proof, uint16 numberToMint) external payable {
+        address account = _msgSender();
+        require(
+            msg.value >= mintPrice * numberToMint,
+            "Ether value sent lower than mint price"
+        );
+        require(_verify(_leaf(account), proof), "Invalid merkle proof");
+        require(_withinMintLimit(account, numberToMint), "Already Minted");
+        for (uint256 i = 0; i < numberToMint; i++) {
+            _mintOne(account);
+        }
+    }
+
+    /**
+     *  @notice Owner only mint function to mint reserves or giveaways
+     *  @param account The address to receive all the minted NFTs
+     *  @param numberToMint The number of NFTs to mint
+     */
+    function ownerMint(address account, uint96 numberToMint)
+        external
+        onlyOwner
+    {
+        for (uint256 i = 0; i < numberToMint; i++) {
+            _mintOne(account);
+        }
+    }
+
+    /**
+     *  @notice Allows the owner to withdraw the Ether collected from minting
+     */
+    function withdrawEther() public onlyOwner {
+        payable(_msgSender()).transfer(address(this).balance);
+    }
+
+    /**
+     *   @notice Overrides EIP721 and EIP2981 supportsInterface function
+     *   @param interfaceId Is supplied from anyone/contract calling this function, as defined in ERC 165
+     *   @return supports A boolean saying if this contract supports the interface or not
      */
     function supportsInterface(bytes4 interfaceId)
         public
@@ -81,56 +173,174 @@ contract BookCoin721 is ERC2981, ERC721, Ownable {
      *   @return uint256 with supply
      */
     function totalSupply() public view returns (uint256) {
-        return supply;
+        // total supply is the total minted
+        return _nextTokenId.current() - 1;
     }
 
     /**
-     *   @notice function to get next mint token id
-     *   @return uint256 with number of next token id
+     *  @notice Provides the root being used for presale approved minter list
+     */
+    function preSaleRoot() public view returns (bytes32) {
+        return _rootPreSale;
+    }
+
+    /**
+     *  @notice Allows the owner to set a new presale merkle root
+     *  @param newPreSaleRoot A merkle root created from a list of approved presale minters
+     */
+    function setPreSaleRoot(bytes32 newPreSaleRoot) public onlyOwner {
+        _rootPreSale = newPreSaleRoot;
+    }
+
+    /**
+     *  @notice Provides the root being used for group one approved minter list
+     */
+    function preGroupOneRoot() public view returns (bytes32) {
+        return _rootPreSale;
+    }
+
+    /**
+     *  @notice Provides the root being used for group one approved minter list
+     *  @param newGroupOneRoot A merkle root created from a list of approved group one minters
+     */
+    function setGroupOneRoot(bytes32 newGroupOneRoot) public onlyOwner {
+        _rootGroup1 = newGroupOneRoot;
+    }
+
+    /**
+     *  @notice Provides the root being used for group two approved minter list
+     */
+    function preGroupTwoRoot() public view returns (bytes32) {
+        return _rootPreSale;
+    }
+
+    /**
+     *  @notice Provides the root being used for group two approved minter list
+     *  @param newGroupTwoRoot A merkle root created from a list of approved group two minters
+     */
+    function setGroupTwoRoot(bytes32 newGroupTwoRoot) public onlyOwner {
+        _rootGroup2 = newGroupTwoRoot;
+    }
+
+    /**
+     *  @notice Retrieves the presale mint start time
+     *  @return date The unix time stamp for when presale mint starts
+     */
+    function preSaleStartTime() public view returns (uint256) {
+        return _preSaleStartTime;
+    }
+
+    /**
+     *  @notice Set the timestamp after which presale mint opens
+     *  @param newPreSaleStart The unix time stamp presale mint will start
+     *  @dev This time is when minting begins, should be set first
+     */
+    function setPreSaleStartTime(uint256 newPreSaleStart) public onlyOwner {
+        _preSaleStartTime = newPreSaleStart;
+    }
+
+    /**
+     *  @notice Retrieves the group one mint start time
+     *  @return date The unix time stamp for when group one mint starts
+     */
+    function groupOneStartTime() public view returns (uint256) {
+        return _groupOneStartTime;
+    }
+
+    /**
+     *  @notice Set the timestamp after which group one mint opens
+     *  @param newGroupOneStart The unix time stamp group one mint will start
+     */
+    function setGroupOneStartTime(uint256 newGroupOneStart) public onlyOwner {
+        require(
+            newGroupOneStart > _preSaleStartTime,
+            "Set time greater than presale time"
+        );
+        _groupOneStartTime = newGroupOneStart;
+    }
+
+    /**
+     *  @notice Retrieves the group two mint start time
+     *  @return date The unix time stamp for when group two mint starts
+     */
+    function groupTwoStartTime() public view returns (uint256) {
+        return _groupTwoStartTime;
+    }
+
+    /**
+     *  @notice Set the timestamp after which group two mint opens
+     *  @param newGroupTwoStart The unix time stamp group two mint will start
+     *  @dev The mint limit switch is coded in here, needs to change with this time
+     */
+    function setGroupTwoStartTime(uint256 newGroupTwoStart) public onlyOwner {
+        require(
+            newGroupTwoStart > _groupOneStartTime,
+            "Set time greater than group one time"
+        );
+        _groupTwoStartTime = newGroupTwoStart;
+        mintLimitSwitchTime = newGroupTwoStart;
+    }
+
+    /**
+     *  @notice Retrieves the public mint start time
+     *  @return date The unix time stamp for when public mint starts
+     */
+    function publicMintStartTime() public view returns (uint256) {
+        return _publicMintStartTime;
+    }
+
+    /**
+     *  @notice Set the timestamp after which public mint opens
+     *  @param newPublicMintStart The unix time stamp public mint will start
+     */
+    function setPublicMintStartTime(uint256 newPublicMintStart)
+        public
+        onlyOwner
+    {
+        require(
+            newPublicMintStart > _groupTwoStartTime,
+            "Set time greater than group two time"
+        );
+        _publicMintStartTime = newPublicMintStart;
+    }
+
+    /**
+     *   @notice Gets next mint token id
+     *   @return uint256 The number of next token id to mint
      */
     function getNextTokenId() public view returns (uint256) {
         return _nextTokenId.current();
     }
 
     /**
-     *   @notice override standard ERC721 base URI
-     *   @dev doesn't require access control since it's internal
-     *   @return string representing base URI
-     */
-    function _baseURI() internal view override returns (string memory) {
-        return _baseTokenURI;
-    }
-
-    /**
-     *   @notice sets the baseURI for the ERC721 tokens
-     *   @dev requires owner
-     *   @param uri is the base URI set for each token
-     */
-    function setBaseURI(string memory uri) public onlyOwner {
-        _baseTokenURI = uri;
-    }    
-
-    function setMerkleGroup2(bytes32 merkleRoot) public onlyOwner {
-        rootGroup2 = merkleRoot;
-    }
-
-    /**
-     *   @notice provides collection metadata URI
-     *   @return string representing contract metadata URI
+     *   @notice Provides collection metadata URI
+     *   @return string The contract metadata URI
      */
     function contractURI() public view returns (string memory) {
-            return _contractUri;
+        return _contractUri;
     }
 
     /**
-     *   @notice sets the collection metadata URI
-     *   @dev requires owner
-     *   @param newContractUri is the URI set for the collection metadata
+     *   @notice Sets the collection metadata URI
+     *   @param newContractUri The URI set for the collection metadata
      */
     function setContractURI(string memory newContractUri) public onlyOwner {
         _contractUri = newContractUri;
     }
 
+    /**
+     *   @notice Sets the token metadata base URI
+     *   @param uri The baseURI for the token metadata
+     */
+    function setBaseURI(string memory uri) public onlyOwner {
+        _baseTokenURI = uri;
+    }
+
+    /**
+     *  @notice Provides the URI for the specific token's metadata
+     *  @param tokenId The token ID for which you want the metadat URL
+     *  @dev This will only return for existing token IDs, and expects the file to end in .json
+     */
     function tokenURI(uint256 tokenId)
         public
         view
@@ -156,22 +366,53 @@ contract BookCoin721 is ERC2981, ERC721, Ownable {
                 : "";
     }
 
+    /**
+     *  @notice Confirms and address and proof will allow minting
+     *  @param account The address to use as a merkle leaf
+     *  @param proof The merkle proof you want to check is valid with the address
+     *  @dev This needs the address, proof, and time to be correct. Time check is in internal _verify function
+     */
     function canMint(address account, bytes32[] calldata proof)
         public
         view
         returns (bool)
     {
         return _verify(_leaf(account), proof);
+    }   
+
+    function _withinMintLimit(address account, uint16 mintCount)
+        internal
+        view
+        returns (bool)
+    {
+        uint16 num = _mintNum[account];
+        if (block.timestamp <= mintLimitSwitchTime) {
+            require(
+                num + mintCount <= firstMintLimit,
+                "Attempting to mint past limit"
+            );
+        } else {
+            require(
+                num + mintCount <= secondMintLimit,
+                "Attempting to mint past limit"
+            );
+        }
+        return true;
     }
 
-    function mint(bytes32[] calldata proof) external payable {
-        address account = _msgSender();
-        require(msg.value >= mintPrice, "Eth Value lower than mint price");
-        require(_verify(_leaf(account), proof), "Invalid merkle proof");
-        require(mintNum[account] == 0, "Already Minted");
+
+    function _baseURI() internal view override returns (string memory) {
+        return _baseTokenURI;
+    }
+
+    function _mintOne(address account) internal {
+        require(
+            _nextTokenId.current() <= supplyLimit,
+            "Cannot mint beyond supply limit"
+        );
         _safeMint(account, _nextTokenId.current());
         _nextTokenId.increment();
-        mintNum[account]++;
+        _mintNum[account]++;
     }
 
     function _leaf(address account) internal pure returns (bytes32) {
@@ -183,10 +424,26 @@ contract BookCoin721 is ERC2981, ERC721, Ownable {
         view
         returns (bool)
     {
-        return MerkleProof.verify(proof, rootGroup2, leaf);
-    }
+        bool presale = false;
+        bool groupone = false;
+        bool grouptwo = false;
+        uint256 currentBlockTime = block.timestamp;
+        if (currentBlockTime > _publicMintStartTime) {
+            return true;
+        }
 
-    function withdrawEther() public onlyOwner {
-        payable(_msgSender()).transfer(address(this).balance);
+        if (currentBlockTime > _groupTwoStartTime) {
+            grouptwo = MerkleProof.verify(proof, _rootGroup2, leaf);
+        }
+
+        if (currentBlockTime > _groupOneStartTime) {
+            groupone = MerkleProof.verify(proof, _rootGroup1, leaf);
+        }
+
+        if (currentBlockTime > _preSaleStartTime) {
+            presale = MerkleProof.verify(proof, _rootPreSale, leaf);
+        }
+
+        return (presale || groupone || grouptwo);
     }
 }
