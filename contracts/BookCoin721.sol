@@ -45,8 +45,8 @@ contract BookCoin721 is ERC2981, ERC721, Ownable {
     bytes32 private _rootPreSale;
     bytes32 private _rootGroup1;
     bytes32 private _rootGroup2;
-    string private _baseTokenURI;
-    string private _contractUri;
+    string private _baseTokenURI = "https://bookcoin.mypinata.cloud/ipfs/QmZdGLWXw1UARFc2SYRBWnutWnsJxn3j4c1sbHDXm7yWgG/";
+    string private _contractUri = "https://bookcoin.mypinata.cloud/ipfs/QmZmyw1R3rPfr8QFUbGiXWbn3A6n4T1ynE3wQxB5yweSPQ";
     uint256 private _preSaleStartTime = 1650315600; // Mon Apr 18 2022 21:00:00 GMT+0000
     uint256 private _groupOneStartTime = 1650376800; // Tue Apr 19 2022 14:00:00 GMT+0000
     uint256 private _groupTwoStartTime = 1650387600; // Tue Apr 19 2022 17:00:00 GMT+0000
@@ -56,17 +56,17 @@ contract BookCoin721 is ERC2981, ERC721, Ownable {
     Counters.Counter private _nextTokenId;
 
     // map of addresses to count of NFTs minted
-    mapping(address => uint16) private _mintNum;
+    mapping(address => uint16) public _mintNum;
 
     // fixed properties
-    uint256 public supplyLimit = 1111;
+    uint256 public supplyLimit = 777;
     uint256 public mintPrice = 0.15 ether;
-    uint256 public mintLimitSwitchTime = _groupTwoStartTime;
+    uint256 public mintLimitSwitchTime = _groupTwoStartTime; // also set with group two below
     uint16 public firstMintLimit = 1;
     uint16 public secondMintLimit = 5;
 
     // EIP2981 properties
-    address royaltyAddr = 0x51AaE7357c8baD10DB3532e9AC597efFA5C3820f;
+    address royaltyAddr = 0x83958d93Aa1Dd637f265F8FF324FC358e94c40dB;
     uint96 royaltyPercent = 1000; // denominator is 10000, so this is 10%
 
     /**
@@ -119,6 +119,12 @@ contract BookCoin721 is ERC2981, ERC721, Ownable {
         _mintOne(account);
     }
 
+    /**
+     *  @notice Allow minting more than one NFT in one call, up to the mint limit
+     *  @param proof A merkle proof that confirms the sender's address is in the list of approved minters
+     *  @param numberToMint The number of NFTs to mint
+     *  @dev The number of NFTs that can me minted is limited by the mint limit, which changes 
+     */
     function mintBatch(bytes32[] calldata proof, uint16 numberToMint) external payable {
         address account = _msgSender();
         require(
@@ -147,6 +153,17 @@ contract BookCoin721 is ERC2981, ERC721, Ownable {
     }
 
     /**
+     *  @notice View to see current mint limit
+     *  @return limit Current mint limit 
+     */
+    function mintLimit() public view returns(uint16){
+        if (block.timestamp <= mintLimitSwitchTime){
+            return firstMintLimit;
+        }
+        return secondMintLimit;
+    }
+
+    /**
      *  @notice Allows the owner to withdraw the Ether collected from minting
      */
     function withdrawEther() public onlyOwner {
@@ -169,8 +186,17 @@ contract BookCoin721 is ERC2981, ERC721, Ownable {
     }
 
     /**
-     *   @notice function to view total supply
-     *   @return uint256 with supply
+     *   @notice Shows maximum supply
+     *   @return uint256 Returns the maximum number of mintable NFTs
+     */
+    function maxSupply() public view returns (uint256) {
+        // total supply is the total minted
+        return supplyLimit;
+    }
+
+    /**
+     *   @notice Shows total supply
+     *   @return uint256 Returns total existing supply
      */
     function totalSupply() public view returns (uint256) {
         // total supply is the total minted
