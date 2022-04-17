@@ -56,7 +56,7 @@ contract BookCoin721 is ERC2981, ERC721, Ownable {
     Counters.Counter private _nextTokenId;
 
     // map of addresses to count of NFTs minted
-    mapping(address => uint16) public _mintNum;
+    mapping(address => uint16) public mintNum;
 
     // fixed properties
     uint256 public supplyLimit = 777;
@@ -411,7 +411,7 @@ contract BookCoin721 is ERC2981, ERC721, Ownable {
         view
         returns (bool)
     {
-        uint16 num = _mintNum[account];
+        uint16 num = mintNum[account];
         if (block.timestamp <= mintLimitSwitchTime) {
             require(
                 num + mintCount <= firstMintLimit,
@@ -438,7 +438,7 @@ contract BookCoin721 is ERC2981, ERC721, Ownable {
         );
         _safeMint(account, _nextTokenId.current());
         _nextTokenId.increment();
-        _mintNum[account]++;
+        mintNum[account]++;
     }
 
     function _leaf(address account) internal pure returns (bytes32) {
